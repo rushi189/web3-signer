@@ -7,12 +7,12 @@ import { useMfa } from '@dynamic-labs/sdk-react-core';
 import SignCard from '../../src/sections/SignCard';
 import HistoryCard from '../../src/sections/HistoryCard';
 import MfaCard from '../../src/sections/MfaCard';
-
+import { useDynamicContext } from '@dynamic-labs/sdk-react-core';
 export default function DashboardPage() {
   const mfa: any = useMfa();
   const [checking, setChecking] = useState(true);
   const [needsMfa, setNeedsMfa] = useState(false);
-
+  const { user } = useDynamicContext();
   useEffect(() => {
     let live = true;
     (async () => {
@@ -30,7 +30,7 @@ export default function DashboardPage() {
       }
     })();
     return () => { live = false; };
-  }, [mfa]);
+  }, [mfa, user?.userId]);
 
   if (checking) {
     return (
@@ -64,8 +64,8 @@ export default function DashboardPage() {
         alignItems: 'stretch',
       }}
     >
-      <SignCard sx={{ height: '100%' }} />
-      <HistoryCard sx={{ height: '100%' }} />
+    <SignCard sx={{ height: '100%', minHeight: 320 }} />
+    <HistoryCard sx={{ height: '100%', minHeight: 320 }} />
     </Box>
   );
 }

@@ -1,2 +1,2 @@
-import { verifyEthersSignature } from '../utils/verify'; // reuse your existing impl
+import { verifyEthersSignature } from '../utils/verify';
 export { verifyEthersSignature };

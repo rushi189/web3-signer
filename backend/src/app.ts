@@ -10,6 +10,6 @@ export function createApp() {
   if (env.CORS_ORIGIN) app.use(cors({ origin: env.CORS_ORIGIN.split(',') }));
 
   app.use(routes);
-  app.use(errorHandler); // keep last
+  app.use(errorHandler);
   return app;
 }

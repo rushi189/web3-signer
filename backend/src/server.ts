@@ -3,5 +3,5 @@ import { createApp } from './app';
 
 const app = createApp();
 app.listen(env.PORT, () => {
-  console.log(`[backend] listening on http://localhost:${env.PORT}`);
+  console.log(`Listening on http://localhost:${env.PORT}`);
 });
